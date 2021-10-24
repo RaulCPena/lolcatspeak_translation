@@ -16,6 +16,7 @@ def generate_word_list(input_file):
     return word_list
 
 
+
 def translate_to_lolcat(word_list, translation_dictionary):
     translated_string = ''
     for word in word_list:
@@ -28,12 +29,14 @@ def main():
     translation_dictionary = get_translation_json()
 
     file_name = input("Enter file name to translate: ")
+    name_file = input('Enter a name for the translated file: ')
     input_file = open(file_name, 'r')
     word_list = generate_word_list(input_file)
+    
 
     translated_string = translate_to_lolcat(word_list, translation_dictionary)
 
-    translated_text_file = open('lamb_lolcat.txt', 'w')
+    translated_text_file = open(name_file, 'w')
     translated_text_file.write(translated_string)
     translated_text_file.close()
 
